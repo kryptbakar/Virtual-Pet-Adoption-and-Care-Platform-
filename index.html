@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Pet Adoption &amp; Care Platform</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fff7ef;
+    --bg-alt: #ffffff;
+    --text: #3a2b22;
+    --muted: #7a6a5f;
+    --accent: #ff8a5c;
+    --accent2: #6ec6b4;
+    --accent3: #ffd166;
+    --card-border: #f0ddc9;
+    --shadow: 0 8px 24px rgba(120, 90, 60, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #241a1e;
+      --bg-alt: #2e2226;
+      --text: #f6e9df;
+      --muted: #c9b6a8;
+      --accent: #ff9a6b;
+      --accent2: #7fd9c4;
+      --accent3: #ffdd8a;
+      --card-border: #3d2e2c;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  header.hero {
+    text-align: center;
+    padding: 4.5rem 1.5rem 3.5rem;
+    background: linear-gradient(180deg, var(--bg-alt), var(--bg));
+    border-bottom: 1px solid var(--card-border);
+  }
+  .paw-row { font-size: 2rem; margin-bottom: 0.75rem; letter-spacing: 0.5rem; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0 0 0.75rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tagline {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .badges { margin-top: 1.75rem; display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--card-border);
+    background: var(--bg-alt);
+    color: var(--text);
+  }
+  main { padding: 3rem 0; }
+  section { margin-bottom: 3rem; }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+  }
+  p { color: var(--text); }
+  ul.features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+  ul.features li {
+    background: var(--bg-alt);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    box-shadow: var(--shadow);
+  }
+  .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .tag {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+  .tag.cpp { background: var(--accent); }
+  .tag.oop { background: var(--accent2); }
+  .tag.cli { background: #b58cd9; }
+  .tag.file { background: var(--accent3); color: #4a3b12; }
+  .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1rem; }
+  a.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 700;
+    background: var(--accent);
+    color: #fff2ea;
+    box-shadow: var(--shadow);
+  }
+  a.button.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--accent2);
+  }
+  code.inline {
+    background: var(--bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.9em;
+  }
+  pre {
+    background: var(--bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem 3rem;
+    color: var(--muted);
+    border-top: 1px solid var(--card-border);
+  }
+  footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="paw-row">🐶 🐱 🦜</div>
+    <h1>Virtual Pet Adoption &amp; Care Platform</h1>
+    <p class="tagline">Adopt a dog, cat, or parrot, then feed, groom, play, and rest them into happiness — all from a friendly text menu in your terminal.</p>
+    <div class="badges">
+      <span class="badge">C++17</span>
+      <span class="badge">OOP</span>
+      <span class="badge">CLI</span>
+      <span class="badge">2023 · Academic Project</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <h2>🐾 About</h2>
+    <div class="card">
+      <p>This is a console-based virtual-pet simulator written in C++. Users create an account, adopt pets — dogs, cats, or parrots — and keep them happy through everyday care actions like feeding, grooming, playing, and resting. Beyond core pet care, the platform layers in a built-in gaming center and a lightweight social system, so players can add friends and exchange messages while they raise their pets.</p>
+      <p>It was built as an academic project for the BS Cyber Security program at GIKI, using object-oriented C++ to model users and pet types with encapsulated state and behaviour, all driven by a guided text-based menu.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>✨ Features</h2>
+    <ul class="features">
+      <li>👤 <strong>Accounts</strong> — create a user account and manage your own collection of pets</li>
+      <li>🐕 <strong>Adopt &amp; release</strong> — add pets (dog / cat / parrot) or remove them</li>
+      <li>🎮 <strong>Care mechanics</strong> — feed, groom, play, and rest; each action shapes the pet's state</li>
+      <li>🕹️ <strong>Gaming center</strong> — built-in mini-game interactions</li>
+      <li>💬 <strong>Social layer</strong> — add friends and exchange messages</li>
+      <li>🧾 <strong>Menu-driven UX</strong> — a guided text interface for every action</li>
+    </ul>
+  </section>
+
+  <section id="tech-stack">
+    <h2>🛠️ Tech Stack</h2>
+    <div class="card">
+      <div class="tags">
+        <span class="tag cpp">C++17</span>
+        <span class="tag oop">Object-Oriented Programming</span>
+        <span class="tag cli">Text-based CLI</span>
+        <span class="tag file">Console App</span>
+      </div>
+      <pre><code>g++ -std=c++17 "Virtual Pet Adoption Platform.cpp" -o vpap
+./vpap        # Linux / macOS
+vpap.exe      # Windows</code></pre>
+    </div>
+  </section>
+
+  <section id="source">
+    <h2>📦 Source &amp; Report</h2>
+    <div class="card">
+      <p>This is a console application, so it doesn't run in the browser — but you can browse the full source and the accompanying project report directly on GitHub.</p>
+      <div class="cta-row">
+        <a class="button" href="https://github.com/kryptbakar/Virtual-Pet-Adoption-and-Care-Platform-/blob/main/Virtual%20Pet%20Adoption%20Platform.cpp">View the C++ source</a>
+        <a class="button secondary" href="https://github.com/kryptbakar/Virtual-Pet-Adoption-and-Care-Platform-/blob/main/VPAP%20Report.docx">Read the full report (.docx)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built by Muhammad Abubakar (<a href="https://github.com/kryptbakar">@kryptbakar</a>) — BS Cyber Security, GIKI</p>
+  <p><a href="https://github.com/kryptbakar/Virtual-Pet-Adoption-and-Care-Platform-">View this repository on GitHub →</a></p>
+</footer>
+
+</body>
+</html>
